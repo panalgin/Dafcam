@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="127e6ac6396c432e981c9f083ecdfbd8" Name="Diagram1" ZoomLevel="124" >
+        <EntityTypeShape EntityType="DafcamModel.Axis" Width="1.5" PointX="2.375" PointY="5.375" />
+        <EntityTypeShape EntityType="DafcamModel.Bit" Width="1.5" PointX="7.25" PointY="3" />
+        <EntityTypeShape EntityType="DafcamModel.Controller" Width="1.5" PointX="4.125" PointY="1.625" />
+        <EntityTypeShape EntityType="DafcamModel.Motor" Width="2" PointX="1.875" PointY="1.625" />
+        <AssociationConnector Association="DafcamModel.MotorAxis" />
+        <EntityTypeShape EntityType="DafcamModel.Spindle" Width="1.5" PointX="4.625" PointY="3.75" />
+        <AssociationConnector Association="DafcamModel.SpindleBit" />
+        <AssociationConnector Association="DafcamModel.SpindleBit1" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

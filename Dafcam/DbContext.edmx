@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DafcamModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DafcamModelStoreContainer">
+          <EntitySet Name="Axes" EntityType="DafcamModel.Store.Axes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Bits" EntityType="DafcamModel.Store.Bits" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Controllers" EntityType="DafcamModel.Store.Controllers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Motors" EntityType="DafcamModel.Store.Motors" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Spindles" EntityType="DafcamModel.Store.Spindles" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Axes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Bits">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ShaftDiameter" Type="float" Nullable="false" />
+          <Property Name="OuterDiameter" Type="float" Nullable="false" />
+          <Property Name="Length" Type="float" Nullable="false" />
+          <Property Name="Worktime" Type="bigint" Nullable="false" />
+          <Property Name="IntStallsAt" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="IntDropsAt" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Controllers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Motors">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AxisID" Type="int" Nullable="false" />
+          <Property Name="ShortDistance" Type="decimal" Nullable="false" Precision="20" />
+          <Property Name="AccelerationStartsAt" Type="int" Nullable="false" />
+          <Property Name="Position" Type="decimal" Nullable="false" Precision="20" />
+          <Property Name="UseRamping" Type="bit" Nullable="false" />
+          <Property Name="MaxRpm" Type="int" Nullable="false" />
+          <Property Name="DwellRpm" Type="int" Nullable="false" />
+          <Property Name="CurrentRpm" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Spindles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TargetRpm" Type="int" Nullable="false" />
+          <Property Name="CurrentRpm" Type="int" Nullable="false" />
+          <Property Name="CurrentBitID" Type="int" />
+          <Property Name="TargetBitID" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DafcamModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DafcamEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="Axes" EntityType="DafcamModel.Axis" />
+          <EntitySet Name="Bits" EntityType="DafcamModel.Bit" />
+          <EntitySet Name="Controllers" EntityType="DafcamModel.Controller" />
+          <EntitySet Name="Motors" EntityType="DafcamModel.Motor" />
+          <AssociationSet Name="MotorAxis" Association="DafcamModel.MotorAxis">
+            <End Role="Motor" EntitySet="Motors" />
+            <End Role="Axis" EntitySet="Axes" />
+          </AssociationSet>
+          <EntitySet Name="Spindles" EntityType="DafcamModel.Spindle" />
+          <AssociationSet Name="SpindleBit" Association="DafcamModel.SpindleBit">
+            <End Role="Spindle" EntitySet="Spindles" />
+            <End Role="Bit" EntitySet="Bits" />
+          </AssociationSet>
+          <AssociationSet Name="SpindleBit1" Association="DafcamModel.SpindleBit1">
+            <End Role="Spindle" EntitySet="Spindles" />
+            <End Role="Bit" EntitySet="Bits" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Axis">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Motors" Relationship="DafcamModel.MotorAxis" FromRole="Axis" ToRole="Motor" />
+        </EntityType>
+        <EntityType Name="Bit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Double" Name="ShaftDiameter" Nullable="false" />
+          <Property Type="Double" Name="OuterDiameter" Nullable="false" />
+          <Property Type="Double" Name="Length" Nullable="false" />
+          <Property Type="Int64" Name="Worktime" Nullable="false" />
+          <Property Type="String" Name="IntStallsAt" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IntDropsAt" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Controller">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Motor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="AxisID" Nullable="false" />
+          <Property Type="Decimal" Name="ShortDistance" Nullable="false" Precision="20" Scale="0" />
+          <Property Type="Decimal" Name="Position" Nullable="false" Precision="20" Scale="0" />
+          <Property Type="Boolean" Name="UseRamping" Nullable="false" />
+          <Property Type="Int32" Name="MaxRpm" Nullable="false" />
+          <Property Type="Int32" Name="DwellRpm" Nullable="false" />
+          <Property Type="Int32" Name="CurrentRpm" Nullable="false" />
+          <NavigationProperty Name="Axis" Relationship="DafcamModel.MotorAxis" FromRole="Motor" ToRole="Axis" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="AccelerationStartsAt" Nullable="false" />
+        </EntityType>
+        <Association Name="MotorAxis">
+          <End Type="DafcamModel.Motor" Role="Motor" Multiplicity="*" />
+          <End Type="DafcamModel.Axis" Role="Axis" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Axis">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Motor">
+              <PropertyRef Name="AxisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Spindle">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="TargetRpm" Nullable="false" />
+          <Property Type="Int32" Name="CurrentRpm" Nullable="false" />
+          <Property Type="Int32" Name="CurrentBitID" />
+          <Property Type="Int32" Name="TargetBitID" />
+          <NavigationProperty Name="CurrentBit" Relationship="DafcamModel.SpindleBit" FromRole="Spindle" ToRole="Bit" />
+          <NavigationProperty Name="TargetBit" Relationship="DafcamModel.SpindleBit1" FromRole="Spindle" ToRole="Bit" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="SpindleBit">
+          <End Type="DafcamModel.Spindle" Role="Spindle" Multiplicity="*" />
+          <End Type="DafcamModel.Bit" Role="Bit" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Bit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Spindle">
+              <PropertyRef Name="CurrentBitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SpindleBit1">
+          <End Type="DafcamModel.Spindle" Role="Spindle" Multiplicity="*" />
+          <End Type="DafcamModel.Bit" Role="Bit" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Bit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Spindle">
+              <PropertyRef Name="TargetBitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DafcamModelStoreContainer" CdmEntityContainer="DafcamEntities">
+          <EntitySetMapping Name="Axes">
+            <EntityTypeMapping TypeName="DafcamModel.Axis">
+              <MappingFragment StoreEntitySet="Axes">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bits">
+            <EntityTypeMapping TypeName="DafcamModel.Bit">
+              <MappingFragment StoreEntitySet="Bits">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IntDropsAt" ColumnName="IntDropsAt" />
+                <ScalarProperty Name="IntStallsAt" ColumnName="IntStallsAt" />
+                <ScalarProperty Name="Worktime" ColumnName="Worktime" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="OuterDiameter" ColumnName="OuterDiameter" />
+                <ScalarProperty Name="ShaftDiameter" ColumnName="ShaftDiameter" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Controllers">
+            <EntityTypeMapping TypeName="DafcamModel.Controller">
+              <MappingFragment StoreEntitySet="Controllers">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Motors">
+            <EntityTypeMapping TypeName="DafcamModel.Motor">
+              <MappingFragment StoreEntitySet="Motors">
+                <ScalarProperty Name="AccelerationStartsAt" ColumnName="AccelerationStartsAt" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CurrentRpm" ColumnName="CurrentRpm" />
+                <ScalarProperty Name="DwellRpm" ColumnName="DwellRpm" />
+                <ScalarProperty Name="MaxRpm" ColumnName="MaxRpm" />
+                <ScalarProperty Name="UseRamping" ColumnName="UseRamping" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="ShortDistance" ColumnName="ShortDistance" />
+                <ScalarProperty Name="AxisID" ColumnName="AxisID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spindles">
+            <EntityTypeMapping TypeName="DafcamModel.Spindle">
+              <MappingFragment StoreEntitySet="Spindles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TargetBitID" ColumnName="TargetBitID" />
+                <ScalarProperty Name="CurrentBitID" ColumnName="CurrentBitID" />
+                <ScalarProperty Name="CurrentRpm" ColumnName="CurrentRpm" />
+                <ScalarProperty Name="TargetRpm" ColumnName="TargetRpm" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
