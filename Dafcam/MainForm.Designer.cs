@@ -62,11 +62,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.ZLiftNuml = new System.Windows.Forms.Label();
             this.Jobs_Tab = new System.Windows.Forms.TabControl();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.Camera_Toggle = new System.Windows.Forms.Button();
-            this.opticBox1 = new Emgu.CV.UI.ImageBox();
             this.ImageList = new System.Windows.Forms.ImageList(this.components);
             this.Incoming_Box = new System.Windows.Forms.TextBox();
             this.Status_Strip = new System.Windows.Forms.StatusStrip();
@@ -97,11 +92,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ZLastNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZLiftNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZDrillNum)).BeginInit();
-            this.Jobs_Tab.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.opticBox1)).BeginInit();
             this.Status_Strip.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -447,7 +437,6 @@
             this.Jobs_Tab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Jobs_Tab.Controls.Add(this.tabPage3);
             this.Jobs_Tab.ImageList = this.ImageList;
             this.Jobs_Tab.Location = new System.Drawing.Point(15, 213);
             this.Jobs_Tab.Name = "Jobs_Tab";
@@ -455,87 +444,6 @@
             this.Jobs_Tab.Size = new System.Drawing.Size(897, 370);
             this.Jobs_Tab.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.Jobs_Tab.TabIndex = 39;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.numericUpDown2);
-            this.tabPage3.Controls.Add(this.numericUpDown1);
-            this.tabPage3.Controls.Add(this.Camera_Toggle);
-            this.tabPage3.Controls.Add(this.opticBox1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 23);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(889, 343);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Optik";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDown2.Location = new System.Drawing.Point(786, 288);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(97, 20);
-            this.numericUpDown2.TabIndex = 7;
-            this.numericUpDown2.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDown1.Location = new System.Drawing.Point(786, 262);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(97, 20);
-            this.numericUpDown1.TabIndex = 6;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            170,
-            0,
-            0,
-            0});
-            // 
-            // Camera_Toggle
-            // 
-            this.Camera_Toggle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Camera_Toggle.Location = new System.Drawing.Point(786, 314);
-            this.Camera_Toggle.Name = "Camera_Toggle";
-            this.Camera_Toggle.Size = new System.Drawing.Size(97, 23);
-            this.Camera_Toggle.TabIndex = 3;
-            this.Camera_Toggle.Text = "Kamera: Açık";
-            this.Camera_Toggle.UseVisualStyleBackColor = true;
-            this.Camera_Toggle.Click += new System.EventHandler(this.Camera_Toggle_Click);
-            // 
-            // opticBox1
-            // 
-            this.opticBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.opticBox1.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            this.opticBox1.Location = new System.Drawing.Point(3, 3);
-            this.opticBox1.Name = "opticBox1";
-            this.opticBox1.Size = new System.Drawing.Size(883, 337);
-            this.opticBox1.TabIndex = 2;
-            this.opticBox1.TabStop = false;
             // 
             // ImageList
             // 
@@ -812,7 +720,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Dafcam - Version 0.1.5";
+            this.Text = "Dafcam - Version 0.1.6";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Scale_Num)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -821,11 +729,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ZLastNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZLiftNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZDrillNum)).EndInit();
-            this.Jobs_Tab.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.opticBox1)).EndInit();
             this.Status_Strip.ResumeLayout(false);
             this.Status_Strip.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -870,7 +773,6 @@
         private System.Windows.Forms.Label ZLiftNuml;
         private System.Windows.Forms.TabControl Jobs_Tab;
         private System.Windows.Forms.TextBox Incoming_Box;
-        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.StatusStrip Status_Strip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ImageList ImageList;
@@ -889,10 +791,6 @@
         private System.Windows.Forms.ToolStripMenuItem takımlarToolStripMenuItem;
         private System.Windows.Forms.Timer Global_Timer;
         private System.Windows.Forms.Button button1;
-        private Emgu.CV.UI.ImageBox opticBox1;
-        private System.Windows.Forms.Button Camera_Toggle;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;

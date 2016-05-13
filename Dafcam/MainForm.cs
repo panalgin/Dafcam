@@ -16,8 +16,6 @@ using System.Windows.Interop;
 using System.Windows.Markup;
 using Wpf = System.Windows;
 using System.Linq;
-using Emgu.CV;
-using Emgu.CV.Structure;
 using System.Data.Entity;
 
 namespace Dafcam
@@ -30,7 +28,6 @@ namespace Dafcam
     }
     public partial class MainForm : Form
     {
-        private Capture m_EmguCam = null;
         private bool m_IsCapturing;
 
         public ProgramState ProgramState { get; set; }
@@ -45,22 +42,6 @@ namespace Dafcam
         public MainForm()
         {
             InitializeComponent();
-
-            try
-            {
-                m_EmguCam = new Capture(0);
-                m_EmguCam.SetCaptureProperty(Emgu.CV.CvEnum.CAP_PROP.CV_CAP_PROP_FRAME_WIDTH, 1280);
-                m_EmguCam.SetCaptureProperty(Emgu.CV.CvEnum.CAP_PROP.CV_CAP_PROP_FRAME_HEIGHT, 720);
-                m_EmguCam.FlipHorizontal = true;
-                m_EmguCam.FlipVertical = true;
-                
-                m_EmguCam.ImageGrabbed += EmguCam_ImageGrabbed;
-            }
-            catch (Exception excpt)
-            {
-                //MessageBox.Show(excpt.Message);
-            }
-
             Form.CheckForIllegalCrossThreadCalls = false;
         }
 
@@ -1015,78 +996,6 @@ T07	1.78mm (0-15)
                 Core.Spindle.Run();
                 m_Running = true;
             }
-        }
-
-        private void Camera_Toggle_Click(object sender, EventArgs e)
-        {
-            if (m_EmguCam != null)
-            {
-                if (m_IsCapturing)
-                {  //stop the capture
-                    this.Camera_Toggle.Text = "Kamera: Kapalı";
-                    m_EmguCam.Pause();
-                }
-                else
-                {
-                    //start the capture
-                    this.Camera_Toggle.Text = "Kamera: Açık";
-                    m_EmguCam.Start();
-                }
-
-                m_IsCapturing = !m_IsCapturing;
-            }
-        }
-
-        void EmguCam_ImageGrabbed(object sender, EventArgs e)
-        {
-            Image<Bgr, Byte> frame = m_EmguCam.RetrieveBgrFrame();
-            Image<Gray, Byte> grayFrame = frame.Convert<Gray, Byte>();
-
-            Image<Gray, byte> Img_Source_Gray = grayFrame.Clone().Xor(new Gray(300));
-            Image<Bgr, byte> Img_Result_Bgr = new Image<Bgr, byte>(Img_Source_Gray.Width, Img_Source_Gray.Height);
-            CvInvoke.cvCvtColor(Img_Source_Gray.Ptr, Img_Result_Bgr.Ptr, Emgu.CV.CvEnum.COLOR_CONVERSION.GRAY2BGR);
-            Gray cannyThreshold = new Gray(Convert.ToInt32(this.numericUpDown1.Value));
-            Gray circleAccumulatorThreshold = new Gray(Convert.ToInt32(this.numericUpDown2.Value));
-            double Resolution = 1;
-            double MinDistance = 100.0;
-            int MinRadius = 10;
-            int MaxRadius = 80;
-
-            CircleF[] HoughCircles = Img_Source_Gray.Clone().HoughCircles(
-                                    cannyThreshold,
-                                    circleAccumulatorThreshold,
-                                    Resolution, //Resolution of the accumulator used to detect centers of the circles
-                                    MinDistance, //min distance 
-                                    MinRadius, //min radius
-                                    MaxRadius //max radius
-                                    )[0]; //Get the circles from the first channel
-            #region draw circles
-            foreach (CircleF circle in HoughCircles)
-            {
-
-                frame.Draw(circle, new Bgr(Color.Blue), 2);
-
-            }
-
-            Point start1 = new Point(frame.Width / 2, 0);
-            Point second1 = new Point(frame.Width / 2, frame.Height);
-
-            Point start2 = new Point(0, frame.Height / 2);
-            Point second2 = new Point(frame.Width, frame.Height / 2);
-
-            LineSegment2D line=new LineSegment2D(start1,second1);
-            LineSegment2D line2 = new LineSegment2D(start2, second2);
-
-            frame.Draw(line, new Bgr(Color.Magenta), 1);
-            frame.Draw(line2, new Bgr(Color.Magenta), 1);
-
-            PointF m_Center = new PointF((float)(frame.Width / 2), (float)(frame.Height / 2));
-            CircleF m_Circle = new CircleF(m_Center, 50);
-            frame.Draw(m_Circle, new Bgr(Color.Magenta), 1);
-            #endregion
-
-            this.opticBox1.Image = frame;
-            Thread.Sleep(10);
         }
 
         private void button2_Click(object sender, EventArgs e)

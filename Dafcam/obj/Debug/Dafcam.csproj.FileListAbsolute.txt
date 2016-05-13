@@ -55,3 +55,25 @@ C:\Users\Mashadow\Documents\Visual Studio 2012\Projects\Dafcam\Dafcam\obj\Debug\
 C:\Users\Mashadow\Documents\Visual Studio 2012\Projects\Dafcam\Dafcam\obj\Debug\Dafcam.exe
 C:\Users\Mashadow\Documents\Visual Studio 2012\Projects\Dafcam\Dafcam\obj\Debug\Dafcam.pdb
 C:\Users\Mashadow\Documents\Visual Studio 2012\Projects\Dafcam\Dafcam\obj\Debug\Dafcam.csprojResolveAssemblyReference.cache
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\bin\Debug\Dafcam.exe.config
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\obj\Debug\Dafcam.exe
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\obj\Debug\Dafcam.pdb
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\bin\Debug\Dafcam.exe
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\bin\Debug\Dafcam.pdb
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\bin\Debug\EntityFramework.dll
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\bin\Debug\Microsoft.Expression.Drawing.dll
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\bin\Debug\EntityFramework.xml
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\bin\Debug\Microsoft.Expression.Drawing.xml
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\obj\Debug\Dafcam.MainForm.resources
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\obj\Debug\Dafcam.MotorsForm.resources
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\obj\Debug\Dafcam.Pop.Add_Bit_Pop.resources
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\obj\Debug\Dafcam.Pop.Add_Motor_Pop.resources
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\obj\Debug\Dafcam.Pop.Edit_Motor_Pop.resources
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\obj\Debug\Dafcam.Pop.Edit_Bit_Pop.resources
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\obj\Debug\Dafcam.Properties.Resources.resources
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\obj\Debug\Dafcam.SettingsForm.resources
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\obj\Debug\Dafcam.ToolsForm.resources
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\obj\Debug\Dafcam.csproj.GenerateResource.Cache
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\obj\Debug\Dafcam.csprojResolveAssemblyReference.cache
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\bin\Debug\ExcellonViewer.dll
+C:\Users\Mashadow\Documents\GitHub\Dafcam\Dafcam\bin\Debug\ExcellonViewer.pdb

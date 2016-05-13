@@ -72,7 +72,7 @@
     </Reference>
     <Reference Include="ExcellonViewer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ExcellonViewer\ExcellonViewer\bin\Debug\ExcellonViewer.dll</HintPath>
+      <HintPath>..\..\..\Visual Studio 2012\Projects\ExcellonViewer\ExcellonViewer\bin\Debug\ExcellonViewer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Expression.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="PresentationCore" />
