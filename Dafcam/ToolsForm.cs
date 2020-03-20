@@ -47,7 +47,7 @@ namespace Dafcam
                 var m_Bits = from bit in m_Context.Bits
                              select new
                              {
-                                 ID = bit.ID,
+                                 bit.ID,
                                  Ad = bit.Name,
                                  DisCap = bit.OuterDiameter,
                                  SaftCap = bit.ShaftDiameter,
@@ -60,7 +60,7 @@ namespace Dafcam
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
         }
 
@@ -96,7 +96,7 @@ namespace Dafcam
 
                 if (ID > 0)
                 {
-                    using(DafcamEntities m_Context = new DafcamEntities())
+                    using (DafcamEntities m_Context = new DafcamEntities())
                     {
                         Bit m_Bit = m_Context.Bits.Where(q => q.ID == ID).FirstOrDefault();
 

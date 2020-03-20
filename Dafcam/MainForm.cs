@@ -28,8 +28,6 @@ namespace Dafcam
     }
     public partial class MainForm : Form
     {
-        private bool m_IsCapturing;
-
         public ProgramState ProgramState { get; set; }
 
         public List<ExcellonPanel> Layouts = new List<ExcellonPanel>();

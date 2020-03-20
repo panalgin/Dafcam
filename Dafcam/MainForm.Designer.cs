@@ -195,13 +195,13 @@
             this.dosyaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.çıkışToolStripMenuItem});
             this.dosyaToolStripMenuItem.Name = "dosyaToolStripMenuItem";
-            this.dosyaToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.dosyaToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.dosyaToolStripMenuItem.Text = "Dosya";
             // 
             // çıkışToolStripMenuItem
             // 
             this.çıkışToolStripMenuItem.Name = "çıkışToolStripMenuItem";
-            this.çıkışToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
+            this.çıkışToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
             this.çıkışToolStripMenuItem.Text = "Çıkış";
             this.çıkışToolStripMenuItem.Click += new System.EventHandler(this.çıkışToolStripMenuItem_Click);
             // 
@@ -212,34 +212,34 @@
             this.ayarlarToolStripMenuItem,
             this.takımlarToolStripMenuItem});
             this.araçlarToolStripMenuItem.Name = "araçlarToolStripMenuItem";
-            this.araçlarToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.araçlarToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.araçlarToolStripMenuItem.Text = "Araçlar";
             // 
             // motorlarToolStripMenuItem
             // 
             this.motorlarToolStripMenuItem.Name = "motorlarToolStripMenuItem";
-            this.motorlarToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.motorlarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.motorlarToolStripMenuItem.Text = "Motorlar";
             this.motorlarToolStripMenuItem.Click += new System.EventHandler(this.motorlarToolStripMenuItem_Click);
             // 
             // ayarlarToolStripMenuItem
             // 
             this.ayarlarToolStripMenuItem.Name = "ayarlarToolStripMenuItem";
-            this.ayarlarToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.ayarlarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.ayarlarToolStripMenuItem.Text = "Ayarlar";
             this.ayarlarToolStripMenuItem.Click += new System.EventHandler(this.ayarlarToolStripMenuItem_Click);
             // 
             // takımlarToolStripMenuItem
             // 
             this.takımlarToolStripMenuItem.Name = "takımlarToolStripMenuItem";
-            this.takımlarToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.takımlarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.takımlarToolStripMenuItem.Text = "Takımlar";
             this.takımlarToolStripMenuItem.Click += new System.EventHandler(this.takımlarToolStripMenuItem_Click);
             // 
             // yardımToolStripMenuItem
             // 
             this.yardımToolStripMenuItem.Name = "yardımToolStripMenuItem";
-            this.yardımToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.yardımToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.yardımToolStripMenuItem.Text = "Yardım";
             // 
             // Xminus_Button
@@ -476,26 +476,26 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(71, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(79, 17);
             this.toolStripStatusLabel1.Text = "Durum: Aylak";
             // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(919, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(911, 17);
             this.toolStripStatusLabel2.Spring = true;
             // 
             // PadCounterLabel
             // 
             this.PadCounterLabel.Name = "PadCounterLabel";
-            this.PadCounterLabel.Size = new System.Drawing.Size(103, 17);
+            this.PadCounterLabel.Size = new System.Drawing.Size(114, 17);
             this.PadCounterLabel.Text = "Delinen/Toplam: 0/0";
             this.PadCounterLabel.Visible = false;
             // 
             // PercentageLabel
             // 
             this.PercentageLabel.Name = "PercentageLabel";
-            this.PercentageLabel.Size = new System.Drawing.Size(30, 17);
+            this.PercentageLabel.Size = new System.Drawing.Size(29, 17);
             this.PercentageLabel.Text = "%00";
             this.PercentageLabel.Visible = false;
             // 
